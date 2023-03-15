@@ -20,7 +20,7 @@ const descriptionElement = document.createElement("p");
 descriptionElement.innerText = article.description ?? "(Pas de description pour le moment.)";
 
 const stockElement = document.createElement("p")
-stockElement.innerText = article.disponibilte ?? "(Rupture de stock)"
+stockElement.innerText = article.disponibilte ? "En stock" : "Rupture de stock."
 
 const sectionFiches = document.querySelector(".fiches");
 
