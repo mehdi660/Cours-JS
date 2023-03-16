@@ -70,3 +70,11 @@ btnDescription.addEventListener("click", function () {
     });
     console.log(piecesFiltrees);
 })
+
+const noms = pieces.map(piece => piece.prix);
+for (let i = pieces.length - 1; i >= 0; i--) {
+    if (pieces[i].prix > 35) {
+        noms.splice(i, 1)
+    }
+}
+console.log(noms)
