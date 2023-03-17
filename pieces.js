@@ -89,27 +89,48 @@ for (let i = 0; i < noms.length; i++) {
 // Ajout de l'en-tête puis de la liste au bloc résultats filtres
 document.querySelector('.abordables').appendChild(abordablesElements)
 
-console.log(noms);
 
 
+const nomsDisponibles = pieces.map(piece => piece.nom);
+const prixDisponibles = pieces.map(piece => piece.prix);
 
-
-const nomDisponible = pieces.map(piece => piece.nom);
 for (let i = pieces.length - 1; i >= 0; i--) {
-    if (!pieces[i].disponibilite) {
-        nomDisponible.splice(i, 1)
+    if (pieces[i].disponibilite === false) {
+        nomsDisponibles.splice(i, 1);
+        prixDisponibles.splice(i, 1);
     }
 }
 
-//Création de la liste
-const disponibleElements = document.createElement('ul');
-//Ajout de chaque nom à la liste
-for (let i = 0; i < nomDisponible.length; i++) {
-    const nomElement = document.createElement('li');
-    nomElement.innerText = nomDisponible[i];
-    disponibleElements.appendChild(nomElement)
-}
-// Ajout de l'en-tête puis de la liste au bloc résultats filtres
-document.querySelector('.disponible').appendChild(disponibleElements)
+const disponiblesElement = document.createElement('ul');
 
-console.log(nomDisponible);
+for (let i = 0; i < nomsDisponibles.length; i++) {
+    const nomElement = document.createElement('li');
+    nomElement.innerText = `${nomsDisponibles[i]} - ${prixDisponibles[i]} €`;
+    disponiblesElement.appendChild(nomElement);
+}
+
+document.querySelector('.disponibles').appendChild(disponiblesElement);
+
+
+// const nomDisponible = pieces.map(piece => piece.nom);
+// for (let i = pieces.length - 1; i >= 0; i--) {
+//     if (!pieces[i].disponibilite) {
+//         nomDisponible.splice(i, 1)
+//     }
+// }
+
+// //Création de la liste
+// const disponibleElements = document.createElement('ul');
+// //Ajout de chaque nom à la liste
+// for (let i = 0; i < nomDisponible.length; i++) {
+//     const nomElement = document.createElement('li');
+//     const prixElement = document.createElement("p")
+//     prixElement.innerText = ` - (${pieces.prix}`;
+//     nomElement.innerText = nomDisponible[i];
+//     disponibleElements.appendChild(nomElement)
+// }
+// // Ajout de l'en-tête puis de la liste au bloc résultats filtres
+// document.querySelector('.disponible').appendChild(disponibleElements)
+// prixElement.appendChild(li)
+
+// console.log(nomDisponible);
