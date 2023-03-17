@@ -4,7 +4,6 @@ const pieces = await reponse.json();
 
 function genererPieces(pieces) {
     for (let i = 0; i < pieces.length; i++) {
-
         const article = pieces[i];
         // Récupération de l'élément du DOM qui accueillera les fiches
         const sectionFiches = document.querySelector(".fiches");
