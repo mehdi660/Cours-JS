@@ -77,7 +77,6 @@ for (let i = pieces.length - 1; i >= 0; i--) {
         noms.splice(i, 1)
     }
 }
-console.log(noms)
 
 //Création de la liste
 const abordablesElements = document.createElement('ul');
@@ -88,5 +87,29 @@ for (let i = 0; i < noms.length; i++) {
     abordablesElements.appendChild(nomElement)
 }
 // Ajout de l'en-tête puis de la liste au bloc résultats filtres
-document.querySelector('.abordables')
-    .appendChild(abordablesElements)
+document.querySelector('.abordables').appendChild(abordablesElements)
+
+console.log(noms);
+
+
+
+
+const nomDisponible = pieces.map(piece => piece.nom);
+for (let i = pieces.length - 1; i >= 0; i--) {
+    if (!pieces[i].disponibilite) {
+        nomDisponible.splice(i, 1)
+    }
+}
+
+//Création de la liste
+const disponibleElements = document.createElement('ul');
+//Ajout de chaque nom à la liste
+for (let i = 0; i < nomDisponible.length; i++) {
+    const nomElement = document.createElement('li');
+    nomElement.innerText = nomDisponible[i];
+    disponibleElements.appendChild(nomElement)
+}
+// Ajout de l'en-tête puis de la liste au bloc résultats filtres
+document.querySelector('.disponible').appendChild(disponibleElements)
+
+console.log(nomDisponible);
