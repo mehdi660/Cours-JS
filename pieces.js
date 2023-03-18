@@ -1,5 +1,5 @@
 import { ajoutListenersAvis } from "./avis.js";// Récupération des pièces depuis le fichier JSON
-const reponse = await fetch('pieces-autos.json');
+const reponse = await fetch('http://localhost:8081/pieces');
 const pieces = await reponse.json();
 
 function genererPieces(pieces) {
@@ -44,6 +44,7 @@ function genererPieces(pieces) {
 }
 
 genererPieces(pieces);
+
 
 //gestion des bouttons 
 const boutonTrier = document.querySelector(".btn-trier");
@@ -144,3 +145,4 @@ inputPrixMax.addEventListener('input', function () {
     document.querySelector(".fiches").innerHTML = "";
     genererPieces(piecesFiltrees);
 })
+
