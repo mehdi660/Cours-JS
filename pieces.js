@@ -1,4 +1,4 @@
-import { ajoutListenersAvis, ajoutListenerEnvoyerAvis, afficherAvis } from "./avis.js";
+import { ajoutListenersAvis, ajoutListenerEnvoyerAvis, afficherAvis, afficherGraphiqueAvis } from "./avis.js";
 //Récupération des pièces eventuellement stockées dans le localStorage
 let pieces = window.localStorage.getItem('pieces');
 
@@ -71,7 +71,7 @@ for (let i = 0; i < pieces.length; i++) {
     }
 }
 
-//gestion des boutons 
+//gestion des bouttons 
 const boutonTrier = document.querySelector(".btn-trier");
 
 boutonTrier.addEventListener("click", function () {
@@ -175,3 +175,5 @@ const boutonMettreAJour = document.querySelector(".btn-maj");
 boutonMettreAJour.addEventListener("click", function () {
     window.localStorage.removeItem("pieces");
 });
+
+await afficherGraphiqueAvis();
